@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import ItemBarraLateral from "../ItemBarraLateral";
+import ItemBarraLateral from "./ItemBarraLateral";
 
 const ListaStyled = styled.ul`
     list-style: none; 

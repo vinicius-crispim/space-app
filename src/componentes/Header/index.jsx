@@ -7,7 +7,7 @@ const HeaderStyled = styled.header `
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 60px 0;
+    padding: 40px 0;
 
     img {
         max-width: 212px;

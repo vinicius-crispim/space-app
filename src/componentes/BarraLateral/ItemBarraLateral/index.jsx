@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 const ItemStyled = styled.li`
     height: 19px;
-    margin: 32px 0;
+    margin: 0 0 32px 0;
     font-size: 24px;
     line-height: 29px;
     cursor: pointer;
