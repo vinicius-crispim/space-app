@@ -1,31 +1,29 @@
 import { styled } from "styled-components";
 
-const ImagemDestaqueStyled = styled.img`
+const ImagemDestaqueStyled = styled.figure`
+    background-image: ${props => `url(${props.$backgroundImage})`};
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    min-height: 328px;
+    border-radius: 20px;
     max-width: 100%;
-    border-radius: 25px;
-`
-const SecaoImagemDestaque = styled.section`
-    position: relative;
+    margin: 0;
     h2{
-        position: absolute;
-        bottom: 75px;
-        margin: 0;
-        left:75px;
         font-size: 40px;
-        font-family: GandhiSansRegular;
         font-weight: 400;
-        width: 301px;
+        max-width: 300px;
+        padding: 0 64px;
         color: #FFFFFF;
         line-height: 1.4;
     }
-
 `
-const ImagemDestaque = () => {
+
+const ImagemDestaque = ({titulo, imagem}) => {
     return (
-        <SecaoImagemDestaque>
-            <ImagemDestaqueStyled src='/src/assets/banner.png' alt="Imagem em destaque"/>
-            <h2>A galeria mais completa de fotos do espaço!</h2>
-        </SecaoImagemDestaque>
+        <ImagemDestaqueStyled $backgroundImage={imagem}>
+            <h2>{titulo}</h2>
+        </ImagemDestaqueStyled>
     )
 }
 

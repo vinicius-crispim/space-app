@@ -14,7 +14,7 @@ const FundoGradiente = styled.div`
 const MainContainer =styled.main`
   
   display: grid;
-  grid-template-columns: 16% auto;
+  grid-template-columns: 210px auto;
   align-items: top;
 `
 
@@ -27,7 +27,7 @@ function App() {
       <MainContainer>
         <BarraLateral/>
         <div>
-          <ImagemDestaque/>
+          <ImagemDestaque titulo='A galeria mais completa de fotos do espaço!' imagem='/src/assets/banner.png'/>
           <TagsSection />
         </div>
       </MainContainer>
