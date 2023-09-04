@@ -5,6 +5,7 @@ import BarraLateral from "./componentes/BarraLateral"
 import ImagemDestaque from "./componentes/ImagemDestaque"
 import TagsSection from "./componentes/TagsSection"
 import Galeria from "./componentes/Galeria"
+import Footer from "./componentes/Footer"
 
 const FundoGradiente = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -111,6 +112,7 @@ function App() {
         </div>
       </MainContainer>
       </AppContainer>
+      <Footer/>
     </FundoGradiente>
   )
 }
