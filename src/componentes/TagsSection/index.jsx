@@ -5,11 +5,11 @@ const TagsSectionStyled = styled.section`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 24px;
-    color: #fff;
+    column-gap: 20px;
+    color: #D9D9D9;
+    font-weight: 200;
     font-size: 24px;
     margin: 12px 0;
-
     p:first-child {
         margin-right: 24px;
     }

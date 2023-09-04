@@ -1,7 +1,9 @@
 import { styled } from "styled-components";
 
 const ImagemDestaqueStyled = styled.figure`
-    background-image: ${props => `url(${props.$backgroundImage})`};
+    background-image: ${props => `url(${props.$backgroundImage})`} ;
+    background-size:cover;
+    background-repeat: no-repeat;
     border-radius: 20px;
     display: flex;
     align-items: center;

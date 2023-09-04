@@ -8,7 +8,7 @@ const HeaderStyled = styled.header `
     justify-content: space-between;
     width: 100%;
     padding: 40px 0;
-
+    align-items: center;
     img {
         max-width: 212px;
     }

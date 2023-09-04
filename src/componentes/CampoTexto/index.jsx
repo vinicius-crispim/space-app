@@ -14,7 +14,6 @@ const CampoTextoStyled = styled.input`
     border-color: #C98CF1;
     background: transparent;
     box-sizing: border-box;
-    width: 566px;
     color: #D9D9D9;
     font-weight: 400;
     font-size: 20px;
