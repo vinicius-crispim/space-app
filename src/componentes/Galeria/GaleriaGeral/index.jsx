@@ -4,19 +4,17 @@ import GaleriaGeralCard from "./GaleriaGeralCard";
 const GaleriaGeralStyled = styled.section`
     display: flex ;
     flex-wrap: wrap;
-    gap: 20px;
-    flex-grow: 1;
+    gap: 24px;
+    box-sizing: border-box;
+    margin-right: 24px;
 `
 
-const GaleriaGeral = ({galeriaGeral}) => {
+const GaleriaGeral = ({fotosGaleria = []}) => {
+    console.log('aaa', fotosGaleria)
     return (
         <GaleriaGeralStyled>
-            {/* {galeriaGeral.map((foto, index) => {
-                return (<img key={index} src={foto.foto} alt="Foto"/>)})
-            } */}
-            {galeriaGeral.map((texto) => {
-                console.log(texto)
-                return <GaleriaGeralCard foto={texto.foto} nomeFoto={texto.nomeFoto} informacoesFoto={texto.informacoesFoto}/>
+            {fotosGaleria.map((foto, index) => {
+                return <GaleriaGeralCard key={index} foto={foto}/>
             })}
         </GaleriaGeralStyled>
     )

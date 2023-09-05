@@ -5,10 +5,7 @@ import GaleriaGeral from "./GaleriaGeral";
 import GaleriaPopulares from "./GaleriaPopulares";
 const GaleriaStyled = styled.div`
     display: grid;
-    grid-template-columns : 75% 25%;
-    gap: 16px;
-    
-    margin: 24px 0;
+    grid-template-columns : auto auto;
     
     div h2{
         color: #7B78E5;
@@ -23,12 +20,14 @@ const GaleriaStyled = styled.div`
     }
 `
 
-const Galeria = ({galeriaGeral, galeriaPopulares}) => {
+const Galeria = ({fotosGaleria = [], galeriaPopulares = []}) => {
+    console.log(fotosGaleria)
+
     return (
         <GaleriaStyled>
             <div>
                 <h2>Navegue pela galeria!</h2>
-                <GaleriaGeral galeriaGeral={galeriaGeral}/>
+                <GaleriaGeral fotosGaleria={fotosGaleria}/>
             </div>
             <div>
                 <h2>Populares</h2>

@@ -1,5 +1,6 @@
 import { styled } from "styled-components"
 import Tag from "./Tags";
+import tags from "./mockTags.json";
 
 const TagsSectionStyled = styled.section`
     display: flex;
@@ -16,14 +17,11 @@ const TagsSectionStyled = styled.section`
 `
 
 const TagsSection = () => {
+    console.log(tags)
     return (
         <TagsSectionStyled>
             <p>Busque por tags:</p>
-            <Tag>Estrelas</Tag>
-            <Tag>Galaxias</Tag>
-            <Tag>Lua</Tag>
-            <Tag>Planetas</Tag>
-            <Tag>Todas</Tag>
+            {tags.map(tag => <Tag key={tag.id}>{tag.titulo}</Tag>)}
         </TagsSectionStyled>
     )
 }

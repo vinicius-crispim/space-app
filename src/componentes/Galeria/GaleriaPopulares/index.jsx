@@ -5,14 +5,14 @@ const GaleriaPopularesStyled = styled.section`
     display: flex ;
     flex-direction: column;
     gap: 18px;
-    
+    box-sizing: border-box;
     img {
         border-radius: 20px;
     }
 
 `
 
-const GaleriaPopulares = ({galeriaPopulares}) => {
+const GaleriaPopulares = ({galeriaPopulares = []}) => {
     return (
         <GaleriaPopularesStyled>
             {galeriaPopulares.map((foto, index) => <img key={index} src={foto.foto} 

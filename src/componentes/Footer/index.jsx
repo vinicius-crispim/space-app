@@ -9,12 +9,12 @@ const FooterStyled = styled.footer`
     justify-content: space-between;
     align-items: center;
     color: #FDFDFD;
+    margin-top: 36px;
 `
 
 const RedesSociaisStyled = styled.div`
     display: flex;
     gap: 16px;
-
     img {
         padding: 10px;
         border: 2px solid #FDFDFD;
