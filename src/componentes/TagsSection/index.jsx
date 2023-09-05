@@ -17,7 +17,6 @@ const TagsSectionStyled = styled.section`
 `
 
 const TagsSection = () => {
-    console.log(tags)
     return (
         <TagsSectionStyled>
             <p>Busque por tags:</p>

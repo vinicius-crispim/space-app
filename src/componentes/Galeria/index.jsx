@@ -20,14 +20,14 @@ const GaleriaStyled = styled.div`
     }
 `
 
-const Galeria = ({fotosGaleria = [], galeriaPopulares = []}) => {
+const Galeria = ({favoritaFoto ,fotosGaleria = [], galeriaPopulares = []}) => {
     console.log(fotosGaleria)
 
     return (
         <GaleriaStyled>
             <div>
                 <h2>Navegue pela galeria!</h2>
-                <GaleriaGeral fotosGaleria={fotosGaleria}/>
+                <GaleriaGeral favoritaFoto={favoritaFoto} fotosGaleria={fotosGaleria}/>
             </div>
             <div>
                 <h2>Populares</h2>

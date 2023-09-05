@@ -9,12 +9,12 @@ const GaleriaGeralStyled = styled.section`
     margin-right: 24px;
 `
 
-const GaleriaGeral = ({fotosGaleria = []}) => {
+const GaleriaGeral = ({favoritaFoto, fotosGaleria = []}) => {
     console.log('aaa', fotosGaleria)
     return (
         <GaleriaGeralStyled>
             {fotosGaleria.map((foto, index) => {
-                return <GaleriaGeralCard key={index} foto={foto}/>
+                return <GaleriaGeralCard favoritaFoto={favoritaFoto} key={index} foto={foto}/>
             })}
         </GaleriaGeralStyled>
     )

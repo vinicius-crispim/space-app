@@ -27,68 +27,6 @@ const AppContainer =styled.div`
 
 const galeria = 
 {
-  galeriaGeral : [
-    {
-        nomeFoto: 'Nome da Foto',
-        informacoesFoto: 'Fonte/Fotógrafo/Satélite',
-        foto: '/imagens/galeria/foto-1.png',
-        favorito: false
-      },
-      {
-        nomeFoto: 'Nome da Foto',
-        informacoesFoto: 'Fonte/Fotógrafo/Satélite',
-        foto: '/imagens/galeria/foto-2.png',
-        favorito: false
-      },
-      {
-        nomeFoto: 'Nome da Foto',
-        informacoesFoto: 'Fonte/Fotógrafo/Satélite',
-        foto: '/imagens/galeria/foto-3.png',
-        favorito: false
-      },
-      {
-        nomeFoto: 'Nome da Foto',
-        informacoesFoto: 'Fonte/Fotógrafo/Satélite',
-        foto: '/imagens/galeria/foto-4.png',
-        favorito: false
-      },
-      {
-        nomeFoto: 'Nome da Foto',
-        informacoesFoto: 'Fonte/Fotógrafo/Satélite',
-        foto: '/imagens/galeria/foto-5.png',
-        favorito: false
-      },
-      {
-        nomeFoto: 'Nome da Foto',
-        informacoesFoto: 'Fonte/Fotógrafo/Satélite',
-        foto: '/imagens/galeria/foto-6.png',
-        favorito: false
-      },
-      {
-        nomeFoto: 'Nome da Foto',
-        informacoesFoto: 'Fonte/Fotógrafo/Satélite',
-        foto: '/imagens/galeria/foto-7.png',
-        favorito: false
-      },
-      {
-        nomeFoto: 'Nome da Foto',
-        informacoesFoto: 'Fonte/Fotógrafo/Satélite',
-        foto: '/imagens/galeria/foto-8.png',
-        favorito: false
-      },
-      {
-        nomeFoto: 'Nome da Foto',
-        informacoesFoto: 'Fonte/Fotógrafo/Satélite',
-        foto: '/imagens/galeria/foto-9.png',
-        favorito: false
-      },
-      {
-        nomeFoto: 'Nome da Foto',
-        informacoesFoto: 'Fonte/Fotógrafo/Satélite',
-        foto: '/imagens/galeria/foto-10.png',
-        favorito: false
-      }
-    ],
     galeriaPopulares: [
       {
         foto:'/imagens/populares/foto-1.png'
@@ -112,6 +50,21 @@ const galeria =
 function App() {
   const [fotosGaleria, setFotosGaleria] = useState(fotos);
   const [fotoFavoritada, setFotoFavoritada] = useState();
+
+  function favoritaFoto(fotoFavoritada){
+    setFotoFavoritada(fotoFavoritada);
+
+    const newGaleria = []
+
+    fotosGaleria.forEach(fotos => {
+      {fotos.id === fotoFavoritada.id ?
+      newGaleria.push(fotoFavoritada) : newGaleria.push(fotos)}
+    })
+    
+    setFotosGaleria(newGaleria);
+
+  }
+
   return (
     <FundoGradiente>
       <EstilosGlobais/>
@@ -122,7 +75,7 @@ function App() {
         <div>
           <ImagemDestaque titulo='A galeria mais completa de fotos do espaço!' imagem='/src/assets/banner.png'/>
           <TagsSection />
-          <Galeria fotosGaleria={fotosGaleria} galeriaPopulares={galeria.galeriaPopulares}/>
+          <Galeria favoritaFoto={favoritaFoto} fotosGaleria={fotosGaleria} galeriaPopulares={galeria.galeriaPopulares}/>
         </div>
       </MainContainer>
       </AppContainer>

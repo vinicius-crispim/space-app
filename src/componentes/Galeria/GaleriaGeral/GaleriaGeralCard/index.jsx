@@ -75,7 +75,7 @@ const ExpandirStyled = styled.button`
 
 
 
-const GaleriaGeralCard = ({foto}) => {
+const GaleriaGeralCard = ({favoritaFoto, foto}) => {
     return (
         // <GaleriaGeralCardStyled>
         //     <img src={foto.path}></img>
@@ -108,9 +108,10 @@ const GaleriaGeralCard = ({foto}) => {
                     <div>
                         <ExpandirStyled/>
                         <FavoritarStyled $favorito={foto.favorito} onClick={() =>{
-                            console.log('aq')
+                            // console.log('aq')
                             foto.favorito = foto.favorito === true ? false : true ;
-                            console.log(foto)
+                            // console.log(foto)
+                            favoritaFoto(foto);
                         }}/>
                     </div>
         
