@@ -63,6 +63,7 @@ function App() {
       return filtroPorTag && filtroPorTitulo
     })
     setFotosGaleria(fotosFiltradas)
+    console.log(tag)
     console.log(filtro)
   }, [filtro, tag])
 
@@ -92,7 +93,7 @@ function App() {
           <BarraLateral />
           <div>
             <ImagemDestaque titulo='A galeria mais completa de fotos do espaço!' imagem='/src/assets/banner.png' />
-            <TagsSection />
+            <TagsSection setTag={setTag}/>
             <Galeria setFotoSelecionada={setFotoSelecionada} aoFavoritaFoto={aoFavoritaFoto} fotosGaleria={fotosGaleria} galeriaPopulares={galeria.galeriaPopulares} />
           </div>
         </MainContainer>

@@ -16,11 +16,11 @@ const TagsSectionStyled = styled.section`
     }
 `
 
-const TagsSection = () => {
+const TagsSection = ({setTag}) => {
     return (
         <TagsSectionStyled>
             <p>Busque por tags:</p>
-            {tags.map(tag => <Tag key={tag.id}>{tag.titulo}</Tag>)}
+            {tags.map(tag => <Tag setTag={setTag} tag={tag} key={tag.id}>{tag.titulo}</Tag>)}
         </TagsSectionStyled>
     )
 }

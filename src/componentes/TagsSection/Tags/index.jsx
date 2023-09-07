@@ -10,9 +10,9 @@ const TagStyled = styled.p`
 
 `
 
-const Tag = ({children}) => {
+const Tag = ({setTag, tag, children}) => {
     return (
-        <TagStyled>
+        <TagStyled onClick={() => setTag(tag.id)}>
             {children}
         </TagStyled>
     )
