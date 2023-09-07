@@ -14,10 +14,10 @@ const HeaderStyled = styled.header `
     }
 `
 
-const Header = () => {
+const Header = ({setFiltro}) => {
     return ( <HeaderStyled >
         <img src="/imagens/logo.png" alt="Banner Space App" />
-        <CampoTexto type='search' placeholder='O que você procura?'/>
+        <CampoTexto setFiltro={setFiltro} type='search' placeholder='O que você procura?'/>
         </HeaderStyled>
     )
 }

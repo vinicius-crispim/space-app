@@ -54,7 +54,7 @@ const Info = styled.figcaption`
         font-size: 17px;
     }
 
-    button, a {
+    button {
         width: 20px;
         height: 19px;
         background-color: transparent;
@@ -70,7 +70,7 @@ const FavoritarStyled = styled.button`
         cursor: pointer;
     }
 `
-const ExpandirStyled = styled.a`
+const ExpandirStyled = styled.button`
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url('/icones/expandir.png');
@@ -84,28 +84,6 @@ const ExpandirStyled = styled.a`
 
 const GaleriaGeralCard = ({ setFotoSelecionada = { setFotoSelecionada }, aoFavoritaFoto, foto }) => {
     return (
-        // <GaleriaGeralCardStyled>
-        //     <img src={foto.path}></img>
-        //     <Info>
-        //         <p>{foto.titulo}</p>
-        //         <div>
-        //             <p>{foto.fonte}</p>
-        //             <div>
-        //                 {/* <FavoritarStyled $favorito={card.favorito}
-        //                 onClick={() => {
-        //                     {card.favorito === true ? setCard({favorito : false})
-        //                         : setCard({favorito: true})
-        //                     };
-        //                     console.log(card)
-        //                 }}
-        //                 />
-        //                 <ExpandirStyled $backgroundImage='/icones/expandir.png' onClick={()=>{
-        //                     console.log('expandido')
-        //                 }}/> */}
-        //             </div>
-        //         </div>
-        //     </Info>
-        // </GaleriaGeralCardStyled>
         <GaleriaGeralCardStyled>
             <img src={foto.path} alt="Imagem da galeria" />
             <Info>
@@ -113,8 +91,13 @@ const GaleriaGeralCard = ({ setFotoSelecionada = { setFotoSelecionada }, aoFavor
                 <div>
                     <footer>{foto.fonte}</footer>
                     <div>
-                        <ExpandirStyled href="#" onClick={() => {
+                        <ExpandirStyled onClick={() => {
                             setFotoSelecionada(foto)
+                            window.scrollTo({
+                                top: 0,
+                                left: 0,
+                                behavior: 'smooth',
+                              });
                         }}>
 
                         </ExpandirStyled>

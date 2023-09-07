@@ -28,10 +28,13 @@ const IconeLupa = styled.img`
     height: 38px;
 `;
 
-const CampoTexto = (props) => {
+const CampoTexto = ({setFiltro, type, placeholder}) => {
+    function aoDigitar(event){
+        setFiltro(event.target.value)
+    }
     return (
         <ContainerStyled>
-            <CampoTextoStyled {...props} />
+            <CampoTextoStyled onChange={aoDigitar} type={type} placeholder={placeholder} />
             <IconeLupa src={search} alt="ícone de lupa" />
         </ContainerStyled>
     )

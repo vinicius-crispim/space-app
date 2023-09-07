@@ -88,8 +88,9 @@ const ModalZoom = ({ foto, setFotoSelecionada, aoFavoritaFoto }) => {
                         <FavoritoZoomStyled $favorito={foto.favorito} onClick={() => {
                             foto.favorito = foto.favorito === true ? false : true ;
                             aoFavoritaFoto(foto);
-                        }}>
-                        </FavoritoZoomStyled>
+                            
+                        }}/>
+
                         <form method="dialog" onSubmit={() => {
                             setFotoSelecionada(null);
                         }}>

@@ -1,5 +1,5 @@
 import { styled } from "styled-components"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import EstilosGlobais from "./componentes/EstilosGlobais"
 import Header from "./componentes/Header"
 import BarraLateral from "./componentes/BarraLateral"
@@ -16,76 +16,89 @@ const FundoGradiente = styled.div`
   width: 100%;
 `
 
-const MainContainer =styled.main`
+const MainContainer = styled.main`
   display: grid;
   grid-template-columns: 200px auto;
   align-items: top;
   gap: 12px;
 `
 
-const AppContainer =styled.div`
+const AppContainer = styled.div`
  margin: 0 2.5rem;
 `
 
-const galeria = 
+const galeria =
 {
-    galeriaPopulares: [
-      {
-        foto:'/imagens/populares/foto-1.png'
-      },
-      {
-        foto:'/imagens/populares/foto-2.png'
-      },
-      {
-        foto:'/imagens/populares/foto-3.png'
-      },
-      {
-        foto:'/imagens/populares/foto-4.png'
-      },
-      {
-        foto:'/imagens/populares/foto-5.png'
-      },
-    ]
-  }
+  galeriaPopulares: [
+    {
+      foto: '/imagens/populares/foto-1.png'
+    },
+    {
+      foto: '/imagens/populares/foto-2.png'
+    },
+    {
+      foto: '/imagens/populares/foto-3.png'
+    },
+    {
+      foto: '/imagens/populares/foto-4.png'
+    },
+    {
+      foto: '/imagens/populares/foto-5.png'
+    },
+  ]
+}
 
 
 function App() {
-  
+
   const [fotosGaleria, setFotosGaleria] = useState(fotos);
   const [fotoSelecionada, setFotoSelecionada] = useState()
+  const [tag, setTag] = useState(0)
+  const [filtro, setFiltro] = useState('')
 
-  function aoFavoritaFoto(fotoFavoritada){
+  useEffect(() => {
+    const fotosFiltradas = fotos.filter(foto => {
+      const filtroPorTag = !tag || foto.tagId === tag;
+      const filtroPorTitulo = !filtro || foto.titulo.toLowerCase().includes(filtro.toLowerCase())
+      return filtroPorTag && filtroPorTitulo
+    })
+    setFotosGaleria(fotosFiltradas)
+    console.log(filtro)
+  }, [filtro, tag])
+
+  const aoFavoritaFoto = (fotoFavoritada) => {
 
     const newGaleria = []
 
     fotosGaleria.forEach(fotos => {
-      {fotos.id === fotoFavoritada.id ?
-      newGaleria.push(fotoFavoritada) : newGaleria.push(fotos)}
+      {
+        fotos.id === fotoFavoritada.id ?
+          newGaleria.push(fotoFavoritada) : newGaleria.push(fotos)
+      }
     })
-    
+
     setFotosGaleria(newGaleria);
+
   }
 
-  function aoExpandirFoto(fotoExpandida){
-    setFotoSelecionada(fotoExpandida)
-  }
+
 
   return (
     <FundoGradiente>
-      <EstilosGlobais/>
+      <EstilosGlobais />
       <AppContainer>
-      <Header/>
-      <MainContainer>
-        <BarraLateral/>
-        <div>
-          <ImagemDestaque titulo='A galeria mais completa de fotos do espaço!' imagem='/src/assets/banner.png'/>
-          <TagsSection />
-          <Galeria setFotoSelecionada={setFotoSelecionada} aoFavoritaFoto={aoFavoritaFoto} fotosGaleria={fotosGaleria} galeriaPopulares={galeria.galeriaPopulares}/>
-        </div>
-      </MainContainer>
+        <Header setFiltro={setFiltro}/>
+        <MainContainer>
+          <BarraLateral />
+          <div>
+            <ImagemDestaque titulo='A galeria mais completa de fotos do espaço!' imagem='/src/assets/banner.png' />
+            <TagsSection />
+            <Galeria setFotoSelecionada={setFotoSelecionada} aoFavoritaFoto={aoFavoritaFoto} fotosGaleria={fotosGaleria} galeriaPopulares={galeria.galeriaPopulares} />
+          </div>
+        </MainContainer>
       </AppContainer>
-      <Footer/>
-      <ModalZoom foto={fotoSelecionada} setFotoSelecionada={setFotoSelecionada} aoFavoritaFoto={aoFavoritaFoto}/>
+      <Footer />
+      <ModalZoom foto={fotoSelecionada} setFotoSelecionada={setFotoSelecionada} aoFavoritaFoto={aoFavoritaFoto} />
     </FundoGradiente>
   )
 }
