@@ -9,6 +9,7 @@ import Galeria from "./componentes/Galeria"
 import Footer from "./componentes/Footer"
 import fotos from './fotos.json'
 import ModalZoom from "./componentes/ModalZoom"
+import imagemDestaqueBackground from './assets/banner.png'
 
 const FundoGradiente = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -92,7 +93,7 @@ function App() {
         <MainContainer>
           <BarraLateral />
           <div>
-            <ImagemDestaque titulo='A galeria mais completa de fotos do espaço!' imagem='/src/assets/banner.png' />
+            <ImagemDestaque titulo='A galeria mais completa de fotos do espaço!' imagem={imagemDestaqueBackground} />
             <TagsSection setTag={setTag}/>
             <Galeria setFotoSelecionada={setFotoSelecionada} aoFavoritaFoto={aoFavoritaFoto} fotosGaleria={fotosGaleria} galeriaPopulares={galeria.galeriaPopulares} />
           </div>
