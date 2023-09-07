@@ -7,14 +7,15 @@ const GaleriaGeralStyled = styled.section`
     gap: 24px;
     box-sizing: border-box;
     margin-right: 24px;
+    
 `
 
-const GaleriaGeral = ({favoritaFoto, fotosGaleria = []}) => {
+const GaleriaGeral = ({ setFotoSelecionada={setFotoSelecionada}, aoFavoritaFoto, fotosGaleria = []}) => {
     console.log('aaa', fotosGaleria)
     return (
         <GaleriaGeralStyled>
             {fotosGaleria.map((foto, index) => {
-                return <GaleriaGeralCard favoritaFoto={favoritaFoto} key={index} foto={foto}/>
+                return <GaleriaGeralCard setFotoSelecionada={setFotoSelecionada} aoFavoritaFoto={aoFavoritaFoto} key={index} foto={foto}/>
             })}
         </GaleriaGeralStyled>
     )

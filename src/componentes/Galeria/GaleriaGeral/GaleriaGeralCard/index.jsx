@@ -4,26 +4,32 @@ import Botao from "../../../Botao"
 
 const GaleriaGeralCardStyled = styled.figure`
     display: flex;
-    flex-grow: 1;
-    width:260px;
+    width: 380px;
+    box-sizing: border-box;
     flex-direction: column;
     margin: 0;
-    img{
-        min-height: 256px;
-        border-top-right-radius: 20px;
-        border-top-left-radius: 20px;
+    
+
+    @media (max-width: 1300px) {
+    width: ${props => props.$expandida ? '90%' : '320px'};
+    }
+
+    & > img{
+        max-width: 100%;
+        border-radius: 20px 20px 0 0;
     }
 `
 const Info = styled.figcaption`
     display: flex;
-    height: 85px;
+    height: 95px;
+    width:100%;
     flex-wrap: wrap;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: #001634;
     justify-content: center;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px 20px;
     box-sizing: border-box;
 
     h3{
@@ -48,7 +54,7 @@ const Info = styled.figcaption`
         font-size: 17px;
     }
 
-    button {
+    button, a {
         width: 20px;
         height: 19px;
         background-color: transparent;
@@ -64,7 +70,9 @@ const FavoritarStyled = styled.button`
         cursor: pointer;
     }
 `
-const ExpandirStyled = styled.button`
+const ExpandirStyled = styled.a`
+    background-size: cover;
+    background-repeat: no-repeat;
     background-image: url('/icones/expandir.png');
     margin-right: 12px;
     &:hover{
@@ -74,8 +82,7 @@ const ExpandirStyled = styled.button`
 `
 
 
-
-const GaleriaGeralCard = ({favoritaFoto, foto}) => {
+const GaleriaGeralCard = ({ setFotoSelecionada = { setFotoSelecionada }, aoFavoritaFoto, foto }) => {
     return (
         // <GaleriaGeralCardStyled>
         //     <img src={foto.path}></img>
@@ -106,19 +113,22 @@ const GaleriaGeralCard = ({favoritaFoto, foto}) => {
                 <div>
                     <footer>{foto.fonte}</footer>
                     <div>
-                        <ExpandirStyled/>
-                        <FavoritarStyled $favorito={foto.favorito} onClick={() =>{
-                            // console.log('aq')
-                            foto.favorito = foto.favorito === true ? false : true ;
-                            // console.log(foto)
-                            favoritaFoto(foto);
-                        }}/>
+                        <ExpandirStyled href="#" onClick={() => {
+                            setFotoSelecionada(foto)
+                        }}>
+
+                        </ExpandirStyled>
+                        <FavoritarStyled $favorito={foto.favorito} onClick={() => {
+                            foto.favorito = foto.favorito === true ? false : true;
+                            aoFavoritaFoto(foto);
+                        }} />
                     </div>
-        
+
                 </div>
             </Info>
         </GaleriaGeralCardStyled>
     )
 }
+
 
 export default GaleriaGeralCard;

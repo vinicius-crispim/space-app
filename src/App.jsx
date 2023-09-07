@@ -8,11 +8,14 @@ import TagsSection from "./componentes/TagsSection"
 import Galeria from "./componentes/Galeria"
 import Footer from "./componentes/Footer"
 import fotos from './fotos.json'
+import ModalZoom from "./componentes/ModalZoom"
+
 const FundoGradiente = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
   min-height: 100vh;
   width: 100%;
 `
+
 const MainContainer =styled.main`
   display: grid;
   grid-template-columns: 200px auto;
@@ -23,7 +26,6 @@ const MainContainer =styled.main`
 const AppContainer =styled.div`
  margin: 0 2.5rem;
 `
-
 
 const galeria = 
 {
@@ -48,11 +50,11 @@ const galeria =
 
 
 function App() {
+  
   const [fotosGaleria, setFotosGaleria] = useState(fotos);
-  const [fotoFavoritada, setFotoFavoritada] = useState();
+  const [fotoSelecionada, setFotoSelecionada] = useState()
 
-  function favoritaFoto(fotoFavoritada){
-    setFotoFavoritada(fotoFavoritada);
+  function aoFavoritaFoto(fotoFavoritada){
 
     const newGaleria = []
 
@@ -62,7 +64,10 @@ function App() {
     })
     
     setFotosGaleria(newGaleria);
+  }
 
+  function aoExpandirFoto(fotoExpandida){
+    setFotoSelecionada(fotoExpandida)
   }
 
   return (
@@ -75,11 +80,12 @@ function App() {
         <div>
           <ImagemDestaque titulo='A galeria mais completa de fotos do espaço!' imagem='/src/assets/banner.png'/>
           <TagsSection />
-          <Galeria favoritaFoto={favoritaFoto} fotosGaleria={fotosGaleria} galeriaPopulares={galeria.galeriaPopulares}/>
+          <Galeria setFotoSelecionada={setFotoSelecionada} aoFavoritaFoto={aoFavoritaFoto} fotosGaleria={fotosGaleria} galeriaPopulares={galeria.galeriaPopulares}/>
         </div>
       </MainContainer>
       </AppContainer>
       <Footer/>
+      <ModalZoom foto={fotoSelecionada} setFotoSelecionada={setFotoSelecionada} aoFavoritaFoto={aoFavoritaFoto}/>
     </FundoGradiente>
   )
 }
